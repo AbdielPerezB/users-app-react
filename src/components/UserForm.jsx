@@ -6,7 +6,7 @@ const initialUserForm = {
     email:''
 };
 
-export const UserForm = () => {
+export const UserForm = ({handleAddUser}) => {
     const [userForm, setUserForm] = useState(initialUserForm);
     const {username, pass, email} = userForm;
 
@@ -21,7 +21,8 @@ export const UserForm = () => {
         event.preventDefault() 
 
         //Guardar los datos bien
-
+        
+        handleAddUser(userForm)
         setUserForm(initialUserForm)
     }
     return (

@@ -1,4 +1,7 @@
-export const UserRow = ({ user: { id, username, email } }) => {
+export const UserRow = ({ user: { id, username, email }, handleRemoveUser }) => {
+    const onDeleteUser = (id) => {
+        handleRemoveUser(id)
+    }
     return (
         <>
             <tr     >
@@ -14,7 +17,8 @@ export const UserRow = ({ user: { id, username, email } }) => {
                 </td>
                 <td>
                     <button
-                    className="btn btn-danger"
+                        className="btn btn-danger"
+                        onClick={() => onDeleteUser(id)}
                     >
                         Remove
                     </button>
