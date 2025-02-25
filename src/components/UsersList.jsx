@@ -3,7 +3,6 @@ import { UserRow } from "./UserRow"
 export const UsersList = ({ users, handleRemoveUser, handleUserSelectedForm }) => {
     return (
         <>
-            <p>Listado de usuarios</p>
             <table className="table table-hover table-striped">
                 <thead>
                     <tr>

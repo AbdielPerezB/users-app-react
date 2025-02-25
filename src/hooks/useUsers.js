@@ -1,5 +1,5 @@
 import { useReducer, useState } from "react"
-import { userReducer } from "../components/reducers/userReducer"
+import { userReducer } from "../reducers/userReducer"
 import Swal from "sweetalert2"
 
 const initialUsers = [
@@ -20,6 +20,8 @@ const initialUserForm = {
 
 export const useUsers = () => {
     const [users, dispatch] = useReducer(userReducer, initialUsers)
+    const [userSelected, setUserSelected] = useState(initialUserForm)
+    const [visibleForm, setVisibleForm] = useState(false)
 
     //Add user
     const [validNewUser, setValidNewUser] = useState(true)
@@ -41,15 +43,16 @@ export const useUsers = () => {
                 (user.id === 0) ? 'Usuario ha sido creado con éxito' : 'Usuario ha sido actualizado con éxito',
                 'success'
             )
+            handleCloseForm()
         } else {
             setValidNewUser(false)
         }
     }
 
     //Update user
-    const [userSelected, setUserSelected] = useState(initialUserForm)
     const handleUserSelectedForm = (user) => {
         // console.log(user)
+        setVisibleForm(true)
         setUserSelected({ ...user })
     }
     //Remove user
@@ -77,15 +80,32 @@ export const useUsers = () => {
         });
 
     }
+    const handleCloseForm = () => {
+        setVisibleForm(false)
+        setUserSelected(initialUserForm)
+        setValidNewUser(true)
+    }
+    const handleOpenForm = () => {
+        setVisibleForm(true)
+    }
+    // Cantan ángeles
+    // santo
+    // canta la creación
+    // santo
+    // exaltado Dios
+    // santo, santo por siempre */
 
     return {
         userSelected,
         validNewUser,
         initialUserForm,
         users,
+        visibleForm,
 
         handleAddUser,
         handleRemoveUser,
-        handleUserSelectedForm
+        handleUserSelectedForm,
+        handleCloseForm,
+        handleOpenForm
     }
 }

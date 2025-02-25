@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUserForm }) => {
+export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUserForm, handleCloseForm}) => {
     const [userForm, setUserForm] = useState(initialUserForm);
     const { id, username, pass, email } = userForm;
 
@@ -60,6 +60,12 @@ export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUse
                     type="submit"
                 >
                     {id > 0 ? 'Editar' : 'Create'}
+                </button>
+                <button
+                    className="btn btn-primary mx-2"
+                    onClick={handleCloseForm}
+                >
+                    Cerrar
                 </button>
             </form>
             {validNewUser ? ''
