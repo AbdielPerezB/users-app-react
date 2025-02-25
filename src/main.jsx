@@ -5,6 +5,6 @@ import UsersApp from './UsersApp.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <UsersApp />
+    <UsersApp/>
   </StrictMode>,
 )

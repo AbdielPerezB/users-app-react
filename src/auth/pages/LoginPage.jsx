@@ -1,20 +1,35 @@
 export const LoginPage = () => {
     return (
         <>
-            <div class="modal" tabindex="-1">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Modal title</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div className="modal" style={{display: "block"}} tabIndex="-1">
+                <div className="modal-dialog">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h5 className="modal-title">Login Page</h5>
                         </div>
-                        <div class="modal-body">
-                            <p>Modal body text goes here.</p>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
+                        <form action="">
+                            <div className="modal-body">
+                                <input
+                                    type="text"
+                                    className="form-control my-3 w-75"
+                                    placeholder="username"
+                                    name="username"
+                                />
+                                <input
+                                    type="password"
+                                    className="form-control my-3 w-75"
+                                    placeholder="Password"
+                                    name="pass"
+                                />
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="submit"
+                                    className="btn btn-primary">
+                                    Login
+                                </button>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
