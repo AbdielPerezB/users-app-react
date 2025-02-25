@@ -1,5 +1,6 @@
 import { useReducer, useState } from "react"
 import { userReducer } from "../components/reducers/userReducer"
+import Swal from "sweetalert2"
 
 const initialUsers = [
     {
@@ -30,16 +31,16 @@ export const useUsers = () => {
             setValidNewUser(true)
 
             //validate if add or update
-            let type;
-            if (user.id === 0) {
-                type = 'addUser'
-            } else {
-                type = 'updateUser'
-            }
+            let type = user.id === 0 ? 'addUser' : 'updateUser';
             dispatch({
                 type,
                 payload: user
             })
+            Swal.fire(
+                (user.id === 0) ? 'Usuario Creado' : 'Usuario Actualizado',
+                (user.id === 0) ? 'Usuario ha sido creado con éxito' : 'Usuario ha sido actualizado con éxito',
+                'success'
+            )
         } else {
             setValidNewUser(false)
         }
@@ -53,11 +54,28 @@ export const useUsers = () => {
     }
     //Remove user
     const handleRemoveUser = (id) => {
-        // console.log('Eliminando id:', id)
-        dispatch({
-            type: 'deleteUser',
-            id
-        })
+        Swal.fire({
+            title: "¿Estás seguro (a)?",
+            text: "¡No podrás deshacer esta acción!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Si, eliminar!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+                dispatch({
+                    type: 'deleteUser',
+                    id
+                })
+                Swal.fire({
+                    title: "¡Usuario eliminado!",
+                    text: "El usuario ha sido eliminado.",
+                    icon: "success"
+                });
+            }
+        });
+
     }
 
     return {
