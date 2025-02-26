@@ -4,7 +4,7 @@ const initialLoginForm = {
     username: '',
     pass: ''
 }
-export const LoginPage = () => {
+export const LoginPage = ({ handleLogin }) => {
     const [loginForm, setLoginForm] = useState(initialLoginForm)
     const { username, pass } = loginForm
 
@@ -28,16 +28,7 @@ export const LoginPage = () => {
         }
 
         //login logic
-        if (username === 'admin' && pass === "1234") {
-            //handleLogin()
-        } else {
-            Swal.fire(
-                'Error de validacion',
-                'Username o password inválidos',
-                'error'
-            )
-        }
-
+        handleLogin({ username, pass })
     }
 
     return (
