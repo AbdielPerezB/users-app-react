@@ -1,6 +1,7 @@
 import { useReducer, useState } from "react"
 import { userReducer } from "../reducers/userReducer"
 import Swal from "sweetalert2"
+import { useNavigate } from "react-router-dom"
 
 const initialUsers = [
     {
@@ -22,6 +23,7 @@ export const useUsers = () => {
     const [users, dispatch] = useReducer(userReducer, initialUsers)
     const [userSelected, setUserSelected] = useState(initialUserForm)
     const [visibleForm, setVisibleForm] = useState(false)
+    const navigate = useNavigate()
 
     //Add user
     const [validNewUser, setValidNewUser] = useState(true)
@@ -44,6 +46,8 @@ export const useUsers = () => {
                 'success'
             )
             handleCloseForm()
+            navigate('/users')
+
         } else {
             setValidNewUser(false)
         }
