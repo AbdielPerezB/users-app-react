@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react"
+import { useContext, useEffect, useState } from "react"
 import { UserForm } from "../components/UserForm"
 import { useParams } from "react-router-dom"
+import { UserContext } from "../context/UserContext"
 
 
 
-export const RegisterPage = ({ users = [], handleAddUser, validNewUser, initialUserForm }) => {
+export const RegisterPage = () => {
+    const { users = [], initialUserForm } = useContext(UserContext)
     //al asignar un valor por defecto a users, [], 
     //nos aseguramos que no de undefined si es que esta parametro
     //no llega del padre por los props
@@ -24,12 +26,7 @@ export const RegisterPage = ({ users = [], handleAddUser, validNewUser, initialU
                 <h4>{userSelected.id > 0 ? 'Editar usuario' : 'Registrar usuario'}</h4>
                 <div className="row">
                     <div className="col">
-                        <UserForm
-                            userSelected={userSelected}
-                            handleAddUser={handleAddUser}
-                            validNewUser={validNewUser}
-                            initialUserForm={initialUserForm}
-                        />
+                        <UserForm userSelected={userSelected} />
                     </div>
                 </div>
             </div>

@@ -1,6 +1,9 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
+import { UserContext } from "../context/UserContext";
 
-export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUserForm, handleCloseForm }) => {
+export const UserForm = ({ userSelected, handleCloseForm }) => {
+
+    const { handleAddUser, validNewUser, initialUserForm } = useContext(UserContext)
     const [userForm, setUserForm] = useState(initialUserForm);
     const { id, username, pass, email } = userForm;
 
