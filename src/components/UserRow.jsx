@@ -1,6 +1,8 @@
-export const UserRow = ({ user, handleRemoveUser, handleUserSelectedForm}) => {
-    const { id, username, email} = user
-    
+import { NavLink } from "react-router-dom"
+
+export const UserRow = ({ user, handleRemoveUser, handleUserSelectedForm }) => {
+    const { id, username, email } = user
+
     return (
         <>
             <tr     >
@@ -10,10 +12,18 @@ export const UserRow = ({ user, handleRemoveUser, handleUserSelectedForm}) => {
                 <td>
                     <button
                         className="btn btn-secondary"
-                        onClick={()=> handleUserSelectedForm(user)}
+                        onClick={() => handleUserSelectedForm(user)}
                     >
                         Update
                     </button>
+                </td>
+                <td>
+                    <NavLink
+                        className="btn btn-secondary btn-sm"
+                        to={'/users/edit/' + id}
+                    >
+                        Update route
+                    </NavLink>
                 </td>
                 <td>
                     <button

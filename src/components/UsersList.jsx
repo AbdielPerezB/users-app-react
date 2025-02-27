@@ -9,8 +9,9 @@ export const UsersList = ({ users, handleRemoveUser, handleUserSelectedForm }) =
                         <th>#</th>
                         <th>Username</th>
                         <th>Email</th>
-                        <th> </th>
-                        <th> </th>
+                        <th> </th> {/*Espacio para el boton de update */}
+                        <th> </th> {/*Espacio para el boton de update route */}
+                        <th> </th> {/*Espacio para el boton de eliminar */}
                     </tr>
                 </thead>
                 <tbody>
