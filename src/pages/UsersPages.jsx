@@ -4,31 +4,31 @@ import { useUsers } from "../hooks/useUsers";
 
 
 
-const UsersPage = () => {
-  const {
-    userSelected,
-    validNewUser,
-    initialUserForm,
-    users,
-    visibleForm,
+const UsersPage = ({
+  userSelected,
+  validNewUser,
+  initialUserForm,
+  users,
+  visibleForm,
 
-    handleAddUser,
-    handleRemoveUser,
-    handleUserSelectedForm,
-    handleOpenForm,
-    handleCloseForm
-  } = useUsers()
+  handleAddUser,
+  handleRemoveUser,
+  handleUserSelectedForm,
+  handleOpenForm,
+  handleCloseForm
+}) => {
+
 
   return (
     <>
       {
         !visibleForm ||
         <UserModalForm
-          userSelected ={userSelected}
-          validNewUser ={validNewUser}
-          initialUserForm ={initialUserForm}
-          handleAddUser ={handleAddUser}
-          handleCloseForm ={handleCloseForm}
+          userSelected={userSelected}
+          validNewUser={validNewUser}
+          initialUserForm={initialUserForm}
+          handleAddUser={handleAddUser}
+          handleCloseForm={handleCloseForm}
         />
       }
       <div className="my-4">

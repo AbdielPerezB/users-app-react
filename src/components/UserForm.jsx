@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUserForm, handleCloseForm}) => {
+export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUserForm, handleCloseForm }) => {
     const [userForm, setUserForm] = useState(initialUserForm);
     const { id, username, pass, email } = userForm;
 
@@ -61,16 +61,19 @@ export const UserForm = ({ handleAddUser, userSelected, validNewUser, initialUse
                 >
                     {id > 0 ? 'Editar' : 'Create'}
                 </button>
-                <button
-                    className="btn btn-primary mx-2"
-                    onClick={handleCloseForm}
-                >
-                    Cerrar
-                </button>
+                {
+                    !handleCloseForm ||
+                    <button
+                        className="btn btn-primary mx-2"
+                        onClick={handleCloseForm}
+                    >
+                        Cerrar
+                    </button>
+                }
             </form>
             {validNewUser ? ''
                 :
-                <div className="alert alert-warning my-3">Datos no válidos</div>
+                <div className="alert alert-warning my-3">Datos no válidos!</div>
             }
         </>
     )

@@ -88,6 +88,7 @@ export const useUsers = () => {
         setVisibleForm(false)
         setUserSelected(initialUserForm)
         setValidNewUser(true)
+        // navigate('/users')
     }
     const handleOpenForm = () => {
         setVisibleForm(true)
