@@ -7,17 +7,15 @@ import { UserProvider } from "../context/UserProvider"
 
 //Todas estas rutas son las privadas, es decir,
 //el usuario necesita estar logueado para que funcione
-export const UserRouters = ({ handleLogout, login }) => {
+export const UserRouters = () => {
 
     return (
         <>
             <UserProvider>
-                <NavBar
-                    handleLogout={handleLogout}
-                    login={login} />
+                <NavBar />
                 <Routes>
                     <Route path="users" element={<UsersPage />} />
-                    
+
                     <Route path="users/register" element={<RegisterPage />} />
 
                     <Route path="/*" element={<Navigate to="/users" />} />

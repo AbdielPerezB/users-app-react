@@ -13,7 +13,8 @@ export const UserProvider = ({ children }) => {
         handleRemoveUser,
         handleUserSelectedForm,
         handleOpenForm,
-        handleCloseForm
+        handleCloseForm,
+        showDatosInvalidosAlert
     } = useUsers()
     return (
         <UserContext.Provider value={
@@ -28,7 +29,8 @@ export const UserProvider = ({ children }) => {
                 handleRemoveUser,
                 handleUserSelectedForm,
                 handleOpenForm,
-                handleCloseForm
+                handleCloseForm,
+                showDatosInvalidosAlert
             }
         }>
             {children}

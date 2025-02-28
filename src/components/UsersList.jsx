@@ -1,6 +1,9 @@
+import { useContext } from "react"
 import { UserRow } from "./UserRow"
+import { UserContext } from "../context/UserContext"
 
-export const UsersList = ({ users, handleRemoveUser, handleUserSelectedForm }) => {
+export const UsersList = () => {
+    const { users } = useContext(UserContext)
     return (
         <>
             <table className="table table-hover table-striped">
@@ -16,11 +19,9 @@ export const UsersList = ({ users, handleRemoveUser, handleUserSelectedForm }) =
                 </thead>
                 <tbody>
                     {users.map(user => (<UserRow
-                                            user={user}
-                                            key={user.id}
-                                            handleRemoveUser={handleRemoveUser}
-                                            handleUserSelectedForm={handleUserSelectedForm}
-                                        />)
+                        user={user}
+                        key={user.id}
+                    />)
                     )}
                 </tbody>
 

@@ -7,9 +7,7 @@ const UsersPage = () => {
 
   const {
     users,
-    visibleForm,  
-    handleRemoveUser,
-    handleUserSelectedForm,
+    visibleForm,
     handleOpenForm,
   } = useContext(UserContext)
 
@@ -33,10 +31,7 @@ const UsersPage = () => {
             }
             {
               users.length > 0 ?
-                <UsersList
-                  users={users}
-                  handleRemoveUser={handleRemoveUser}
-                  handleUserSelectedForm={handleUserSelectedForm} />
+                <UsersList />
                 :
                 <div className="alert alert-warning">No hay usuarios en el sistema!</div>
             }

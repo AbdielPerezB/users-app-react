@@ -99,6 +99,10 @@ export const useUsers = () => {
     // santo
     // exaltado Dios
     // santo, santo por siempre */
+    const showDatosInvalidosAlert = (showDatosInvalidosAlert) => {
+        setValidNewUser(!showDatosInvalidosAlert)
+
+    }
 
     return {
         userSelected,
@@ -111,6 +115,7 @@ export const useUsers = () => {
         handleRemoveUser,
         handleUserSelectedForm,
         handleCloseForm,
-        handleOpenForm
+        handleOpenForm,
+        showDatosInvalidosAlert
     }
 }

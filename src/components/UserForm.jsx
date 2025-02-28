@@ -3,7 +3,7 @@ import { UserContext } from "../context/UserContext";
 
 export const UserForm = ({ userSelected, handleCloseForm }) => {
 
-    const { handleAddUser, validNewUser, initialUserForm } = useContext(UserContext)
+    const { handleAddUser, validNewUser, initialUserForm, showDatosInvalidosAlert } = useContext(UserContext)
     const [userForm, setUserForm] = useState(initialUserForm);
     const { id, username, pass, email } = userForm;
 
@@ -26,6 +26,10 @@ export const UserForm = ({ userSelected, handleCloseForm }) => {
         setUserForm(userSelected)
 
     }, [userSelected])
+
+    useEffect(()=>{
+        showDatosInvalidosAlert(false)
+    },[])
     return (
         <>
             <form onSubmit={(event) => oonSubmit(event)}>
